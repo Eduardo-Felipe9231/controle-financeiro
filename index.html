@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle Financeiro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>💸 Controle Financeiro</h1>
+
+  <div class="mes">
+    <button onclick="mudarMes(-1)">⬅️</button>
+    <span id="mesAtual"></span>
+    <button onclick="mudarMes(1)">➡️</button>
+  </div>
+
+  <div class="grid">
+
+    <!-- ESQUERDA -->
+    <div class="left">
+
+      <div class="resumo">
+        <div class="card"><p>Entradas</p><h3 id="entradas">0</h3></div>
+        <div class="card"><p>Saídas</p><h3 id="saidas">0</h3></div>
+        <div class="card"><p>Saldo</p><h3 id="saldo">0</h3></div>
+        <div class="card"><p>Fatura</p><h3 id="fatura">0</h3></div>
+      </div>
+
+      <div class="form">
+        <input id="descricao" placeholder="Descrição">
+        <input id="valor" type="number" placeholder="Valor">
+        <input id="data" type="date">
+        <input id="parcelas" type="number" placeholder="Parcelas">
+
+        <select id="tipo">
+          <option value="entrada">Entrada</option>
+          <option value="saida">Saída</option>
+          <option value="credito">Cartão</option>
+        </select>
+
+        <button onclick="adicionarTransacao()">Adicionar</button>
+        <button onclick="adicionarRecorrente()">Recorrente</button>
+      </div>
+
+      <div class="form">
+        <input id="fechamento" type="number" placeholder="Fechamento">
+        <input id="vencimento" type="number" placeholder="Vencimento">
+        <button onclick="salvarConfig()">Salvar Config</button>
+      </div>
+
+    </div>
+
+    <!-- DIREITA -->
+    <div class="right">
+
+      <canvas id="graficoFinanceiro"></canvas>
+
+      <div class="card">
+        <h3>📊 Insights</h3>
+        <ul id="insights"></ul>
+      </div>
+
+      <div class="lista">
+        <ul id="lista"></ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
